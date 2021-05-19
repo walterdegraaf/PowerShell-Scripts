@@ -4,7 +4,7 @@
  Import-Module ExchangeOnlineManagement
 
 #Set admin UPN
-$UPN = 'adm-walter@mc1s.com'
+$UPN = 'admin@admin.com'
 
 #This connects to Azure Active Directory & Exchange Online
 Connect-MsolService
