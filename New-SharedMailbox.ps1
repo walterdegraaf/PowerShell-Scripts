@@ -41,8 +41,8 @@ function New-SharedMailbox {
     New-ADGroup -Name $SharedMailboxSecurityGroupNameSA -path $ouNameFull -GroupScope Global
 
     #Add mail properties to the Security Groups
-    $SetEmailToGroupFA = $SharedMailboxSecurityGroupNameFA + "@mc1s.com"
-    $SetEmailToGroupSA = $SharedMailboxSecurityGroupNameSA + "@mc1s.com"
+    $SetEmailToGroupFA = $SharedMailboxSecurityGroupNameFA + "@domain.com"
+    $SetEmailToGroupSA = $SharedMailboxSecurityGroupNameSA + "@domain.com"
     Set-ADGroup $SharedMailboxSecurityGroupNameFA -Replace @{mail=$SetEmailToGroupFA}
     Set-ADGroup $SharedMailboxSecurityGroupNameSA -Replace @{mail=$SetEmailToGroupSA}
 
@@ -56,10 +56,3 @@ function New-SharedMailbox {
     Add-MailboxPermission -Identity $EmailAddress -User $SetEmailToGroupFA -AccessRights FullAccess
     Add-RecipientPermission -Identity $EmailAddress -Trustee $SetEmailToGroupSA -AccessRights SendAs -Confirm:$false
 }
-
-$CSVFile = Import-Csv C:\Users\csv.csv
-
-$Name = $CSVFile.name
-$EMailAddress = $CSVFile.emailaddress
-$OuName = $CSVFile.OuName
-$SecurityGroupShortName = $CSVFile.SecurityGroupShortName
