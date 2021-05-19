@@ -4,7 +4,7 @@
 .DESCRIPTION
     This command will create a Shared Mailbox in Exchange Online, will create Security Groups in the right OU and will give the Security Groups FullAccess and SendAs rights.
 .EXAMPLE
-    PS C:\> New-SharedMailbox -Name "DM | Sekretariat" -EmailAddress sekretariat@drewsmarine.com -OuName DE-HAM-DRE -SecurityGroupShortName Sekretariat
+    PS C:\> New-SharedMailbox -Name "Adatum | Info" -EmailAddress info@adatum.com -OuName Adatum -SecurityGroupShortName Info
     Explanation of what the example does
 .INPUTS
     Name
