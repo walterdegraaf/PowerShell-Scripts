@@ -50,7 +50,7 @@ function New-SharedMailboxCSV {
     }
 
     #Sync changes to Azure, need this to create the mail-enabled-security-grops in Exchange Online
-    Invoke-Command -ComputerName sa-sr-ams-as-01.mc1s.com -ScriptBlock {Start-ADSyncSyncCycle -PolicyType delta} 
+    Invoke-Command -ComputerName AzureSyncServer -ScriptBlock {Start-ADSyncSyncCycle -PolicyType delta} 
     Write-Host -ForegroundColor Yellow "Sync to Azure AD is in progress and will take 5 minutes..."
     #Wait 5 minutes for the sync to complete
     Start-Sleep -Seconds 300
